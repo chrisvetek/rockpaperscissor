@@ -1,2 +1,2 @@
-# rockpapsercissor
+# rockpaperscissor
 JS odin rps challenge
