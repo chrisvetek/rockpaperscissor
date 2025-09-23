@@ -1,4 +1,17 @@
 //console.log("hello world");
+
+var humanScore = 0;
+var computerScore = 0;
+
+function playRound(humanChoice, computerChoice){
+
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
 function getComputerChoice(){
 
     let x = "rock";
@@ -19,4 +32,10 @@ function getComputerChoice(){
     
 }
 
+function getHumanChoice(){
+    let userChoice = prompt("Please enter your choice: ").toLowerCase();
+    return userChoice;
+}
+
 //console.log(getComputerChoice());
+//console.log(getHumanChoice());
