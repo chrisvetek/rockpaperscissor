@@ -1,16 +1,38 @@
 //console.log("hello world");
 
-var humanScore = 0;
-var computerScore = 0;
-
 function playRound(humanChoice, computerChoice){
-
+    //rock scissors
+    if(humanChoice == "rock" && computerChoice == "scissors"){
+        result = "You win! Rock beats scissors!";
+    } else if (humanChoice == "scissors" && computerChoice == "rock"){
+        result = "You lose! Rock beats scissors!";
+    } else if(humanChoice == "rock" && computerChoice == "paper"){
+        result = "You lose! Paper beats rock!";
+    } else if (humanChoice == "paper" && computerChoice == "rock"){
+        result = "You win! Paper beats rock!";
+    } else if(humanChoice == "scissors" && computerChoice == "paper"){
+        result = "You win! Scissors beats paper!";
+    } else if (humanChoice == "scissors" && computerChoice == "rock"){
+        result = "You lose! Scissors beats paper!";
+    } else {
+        result = "Tie game! Play again!";
+    }
+    return console.log(result);
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+function playGame(){
+
+  var humanScore = 0; 
+  var computerScore = 0;
+
+  for(let t=0; t<6; t++){
+    playRound(humanSelection, computerSelection);
+  }
+}
+
 
 function getComputerChoice(){
 
@@ -33,9 +55,6 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    let userChoice = prompt("Please enter your choice: ").toLowerCase();
-    return userChoice;
+    let userChoice = prompt("Please enter your choice: ");
+    return userChoice.toLowerCase();
 }
-
-//console.log(getComputerChoice());
-//console.log(getHumanChoice());
