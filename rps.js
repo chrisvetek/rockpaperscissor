@@ -1,4 +1,4 @@
-console.log("hello world");
+//console.log("hello world");
 function getComputerChoice(){
 
     let x = "rock";
@@ -6,14 +6,17 @@ function getComputerChoice(){
     let z = "scissors";
 
     result1 = Math.random(0,1);
-    console.log(x + " gets " + result1);
     result2 = Math.random(0,1);
-    console.log(y + " gets " + result2);
     result3 = Math.random(0,1);
-    console.log(z + " gets " + result3);
 
-    console.log("Paper beats rock, rock beats scissors, scissors beats paper");
+    if(result1>result2 && result1>result3){
+        return x;
+    } else if(result2>result1 && result2>result3){
+        return y;
+    } else {
+        return z;
+    }
     
 }
 
-console.log(getComputerChoice());
+//console.log(getComputerChoice());
