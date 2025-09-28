@@ -1,60 +1,67 @@
-//console.log("hello world");
-
-function playRound(humanChoice, computerChoice){
-    //rock scissors
-    if(humanChoice == "rock" && computerChoice == "scissors"){
-        result = "You win! Rock beats scissors!";
-    } else if (humanChoice == "scissors" && computerChoice == "rock"){
-        result = "You lose! Rock beats scissors!";
-    } else if(humanChoice == "rock" && computerChoice == "paper"){
-        result = "You lose! Paper beats rock!";
-    } else if (humanChoice == "paper" && computerChoice == "rock"){
-        result = "You win! Paper beats rock!";
-    } else if(humanChoice == "scissors" && computerChoice == "paper"){
-        result = "You win! Scissors beats paper!";
-    } else if (humanChoice == "scissors" && computerChoice == "rock"){
-        result = "You lose! Scissors beats paper!";
-    } else {
-        result = "Tie game! Play again!";
-    }
-    return console.log(result);
-}
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 function playGame(){
 
-  var humanScore = 0; 
-  var computerScore = 0;
+    
 
-  for(let t=0; t<6; t++){
-    playRound(humanSelection, computerSelection);
-  }
+    function playRound(humanChoice, computerChoice){
+        if(humanChoice == "rock" && computerChoice == "scissors"){
+            result = "You win! Rock beats scissors!";
+        } else if(humanChoice == "rock" && computerChoice == "paper"){
+            result = "You lose! Paper beats rock!";
+        } else if (humanChoice == "paper" && computerChoice == "rock"){
+            result = "You win! Paper beats rock!";
+        } else if(humanChoice == "paper" && computerChoice == "scissors"){
+            result = "You lose! Scissors beats paper!";
+        } else if(humanChoice == "scissors" && computerChoice == "paper"){
+            result = "You win! Scissors beats paper!";
+        } else if (humanChoice == "scissors" && computerChoice == "rock"){
+            result = "You lose! Rock beats scissors!";
+        } else {
+            result = "Tie game! Play again!";
+        } 
+        return result;
+    }
+
+    for(let i=0;i<5;i++){
+        var humanSelection = getHumanChoice();
+        var computerSelection = getComputerChoice();
+        let round = playRound(humanSelection,computerSelection);
+        console.log(round);
+        humanSelection = "";
+        computerSelection = "";
+    }
 }
 
+playGame();
 
 function getComputerChoice(){
+    choice = "";
 
-    let x = "rock";
-    let y = "paper";
-    let z = "scissors";
+    let x = "";
+    let y = "";
+    let z = "";
 
     result1 = Math.random(0,1);
     result2 = Math.random(0,1);
     result3 = Math.random(0,1);
 
     if(result1>result2 && result1>result3){
-        return x;
+       choice = "rock";
     } else if(result2>result1 && result2>result3){
-        return y;
+       choice = "paper";
     } else {
-        return z;
+        choice = "scissors";
     }
+    console.log("computer chose " + choice);
+    return choice;
     
 }
 
 function getHumanChoice(){
-    let userChoice = prompt("Please enter your choice: ");
+    let userChoice = "";
+    userChoice = prompt("Please enter your choice: ");
+    console.log("human chose " + userChoice.toLowerCase());
     return userChoice.toLowerCase();
 }
+
+
+
